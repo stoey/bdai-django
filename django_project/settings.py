@@ -12,14 +12,29 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
-SERVER_MODE=os.environ.get('BDAIMODE', 'admin')
+SERVER_MODE = os.environ.get('BDAIMODE', 'admin')
 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'h@o0)rn1y$ob#6x62$zngp0ws+dh^_#tjn2i0o@p468bj#elgv'
+_SECRET_KEY_FILE = os.path.join(BASE_DIR, '.secret_key')
+def _new_secret_key(length):
+    chars = string.ascii_letters + string.digits + string.punctuation
+    rand = random.SystemRandom()
+    return "".join([rand.choice(chars) for _ in range(length)])
+
+try:
+    with open(_SECRET_KEY_FILE) as secrets_file:
+        SECRET_KEY = secrets_file.read().strip()
+except IOError:
+    import random
+    import string
+    with open(_SECRET_KEY_FILE, 'w') as secrets_file:
+        os.fchmod(secrets_file.fileno(), 0600)
+        SECRET_KEY = _new_secret_key(50)
+        secrets_file.write(SECRET_KEY)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
