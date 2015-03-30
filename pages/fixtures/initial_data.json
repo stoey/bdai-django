@@ -1,0 +1,10 @@
+[
+{"pk": 1, "model": "pages.theme", "fields": {"name": "BDAI", "template": "themes/bdai.html"}}
+, {"pk": 2, "model": "pages.theme", "fields": {"name": "Camp", "template": "themes/camp.html"}}
+, {"pk": 0, "model": "pages.directory", "fields": {"name": "", "parent": null, "theme": 1}}
+, {"pk": 1, "model": "pages.directory", "fields": {"name": "about", "parent": 0, "theme": 1}}
+, {"pk": 2, "model": "pages.directory", "fields": {"name": "camp", "parent": 0, "theme": 2}}
+, {"pk": 3, "model": "pages.directory", "fields": {"name": "support", "parent": 0, "theme": 1}}
+, {"pk": 4, "model": "pages.directory", "fields": {"name": "assistance", "parent": 3, "theme": 1}}
+, {"pk": 5, "model": "pages.directory", "fields": {"name": "community", "parent": 3, "theme": 1}}
+]

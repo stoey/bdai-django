@@ -1,0 +1,6 @@
+#module-publish-actions input {
+    font-size: 1.5em;
+}
+#module-publish-actions input.preview { color: #0c0; }
+#module-publish-actions input.test { color: #f80; }
+#module-publish-actions input.publish { color: #f00; }

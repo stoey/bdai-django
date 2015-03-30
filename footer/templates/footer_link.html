@@ -1,0 +1,16 @@
+<h{{ depth }}><a href="{{ directory.index_page.path }}">{{ directory.index_page.title }}</a></h{{depth}}>
+<ul>
+  {% if directory.subdirectories.count %}
+  {% for subdirectory in directory.subdirectories.all %}
+  <li>
+  {% with directory=subdirectory depth=depth|add:"1" template="footer_link.html" %}
+    {% include template %}
+  {% endwith %}
+  </li>
+  {% endfor %}
+  {% endif %}
+  {% for page in directory.pages.all %}
+  {% if page.footer_link %}<li><a href="{{ page.path }}">{{ page.title }}</a></li>{% endif %}
+  {% endfor %}
+  
+</ul>
