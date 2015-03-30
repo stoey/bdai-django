@@ -42,8 +42,3 @@
 ehthumbs.db
 Thumbs.db
 
-# Directory contents #
-######################
-/snapshots/*
-/static/*
-/uploads/*
