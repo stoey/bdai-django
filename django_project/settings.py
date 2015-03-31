@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+SERVER_DIR = os.environ.get('SERVER_DIR', BASE_DIR)
 
 SERVER_MODE = os.environ.get('BDAIMODE', 'admin')
 
@@ -98,11 +99,11 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 DATABASES = {
     'admin': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'admin_db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db', 'admin_db.sqlite3'),
     },
     'live': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'live_db.sqlite3'),
+        'NAME': os.path.join(BASE_DIR, 'db', 'live_db.sqlite3'),
     },
 }
 
@@ -126,13 +127,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.6/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATIC_ROOT = os.path.join(SERVER_DIR, 'static')
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'django_project', 'static'),
 )
 
 MEDIA_URL = '/uploads/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'uploads')
+MEDIA_ROOT = os.path.join(SERVER_DIR, 'uploads')
 
 TINYMCE_DEFAULT_CONFIG = dict(
     theme='advanced',
