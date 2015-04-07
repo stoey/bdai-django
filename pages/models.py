@@ -30,6 +30,10 @@ class Directory(models.Model):
     def index_page(self):
         return Page.objects.get(name="", directory=self)
 
+    @property
+    def non_index_pages(self):
+        return Page.objects.exclude(name="").filter(directory=self).order_by('name')
+
     def __unicode__(self):
         if self.pk == 0:
             return ''

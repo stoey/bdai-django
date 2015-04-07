@@ -1,5 +1,6 @@
 {% extends "themes/bdai.html" %}
 {% block page %}
+{% if banner %}
 <div class="jumbotron" style="background-image: url({{ banner.background_image.url }})" >
   <div class="container">
     <h1>{{ banner.title }}</h1>
@@ -12,16 +13,18 @@
   </div>
 </div>
 </div>
+{% endif %}
 <div class="container">
   <div class="row">
     <div class="col-md-4">
       <h2>{{ text_boxes.newly_diagnosed.get_name_display }}</h2>
       {{ text_boxes.newly_diagnosed.text|linebreaks }}
-      <p><a class="btn btn-primary" href="#" role="button">Get in touch &raquo;</a></p>
+      <p><a class="btn btn-primary" href="/newly-diagnosed" role="button">Get in touch &raquo;</a></p>
       <h2>{{ text_boxes.about_bdai.get_name_display }}</h2>
       {{ text_boxes.about_bdai.text|linebreaks }}
     </div>
     <div class="col-md-4 next_event">
+      {% if event %}
       <h2>Next Event <a class="btn btn-default pull-right" href="/events/" role="button">All Events &raquo;</a></h2>
       <div class="thumbnail event" data-start="{{ event.start }}" data-end="{{ event.end }}">
         <img src="{{ event.image.url }}">
@@ -33,6 +36,7 @@
 	<a class="btn btn-primary" href="{{ actio.href }}">{{ action.name }} &raquo;</a>
 	{% endfor %}</p>
       </div>
+      {% endif %}
     </div>
 
   </div>

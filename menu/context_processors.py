@@ -13,7 +13,7 @@ def menu(request):
             ),
             dict(
                 name="Support Us", 
-                target="/support-bdai/",
+                target="/support-bdai",
                 active=False
             ),
         ],

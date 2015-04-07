@@ -1,4 +1,4 @@
-<h{{ depth }}><a href="{{ directory.index_page.path }}">{{ directory.index_page.title }}</a></h{{depth}}>
+<h{{ depth }}><a href="/{{ directory.index_page.path }}">{{ directory.index_page.title }}</a></h{{depth}}>
 <ul>
   {% if directory.subdirectories.count %}
   {% for subdirectory in directory.subdirectories.all %}
@@ -9,8 +9,8 @@
   </li>
   {% endfor %}
   {% endif %}
-  {% for page in directory.pages.all %}
-  {% if page.footer_link %}<li><a href="{{ page.path }}">{{ page.title }}</a></li>{% endif %}
+  {% for page in directory.non_index_pages %}
+  {% if page.footer_link %}<li><a href="/{{ page.path }}">{{ page.title }}</a></li>{% endif %}
   {% endfor %}
   
 </ul>

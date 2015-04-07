@@ -11,9 +11,12 @@ from sponsors.models import Sponsor
 
 def home(request):
     now = datetime.now()
+    banners = Banner.objects.filter(expires__gt=now).order_by('-expires')
+    events = Event.objects.filter(end__gt=now).order_by('start')
     context = dict(
-        banner=Banner.objects.filter(expires__gt=now).order_by('-expires')[0],
-        event=Event.objects.filter(end__gt=now).order_by('start')[0],
+        title='Home',
+        banner= banners[0] if banners.count() else None,
+        event=events[0] if events.count() else None,
         sponsors=Sponsor.objects.order_by('?'),
         text_boxes=dict([(b.name, b) for b in TextBox.objects.all()]),
     )

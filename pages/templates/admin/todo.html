@@ -1,0 +1,9 @@
+{% extends "admin/base_site.html" %}
+{% load i18n admin_static %}
+{% block content %}
+<ol>
+{% for page in pages %}
+<li>{{ page.title }} <a href="{% url "admin:pages_page_change" page.pk %}">{{ page.path}}</a></li>
+{% endfor %}
+</ol>
+{% endblock %}
