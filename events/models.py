@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import localtime
 
 class Event(models.Model):
     name = models.CharField(max_length=100)
@@ -13,13 +14,15 @@ class Event(models.Model):
 
     @property
     def time(self):
-        if self.start.date() == self.end.date(): # 1 day
-            format_str = "{self.start:%B %d %i:%m%p}-{self.end:%i:%m%p}"
-        elif self.start.month == self.end.month:
-            format_str = "{self.start:%B %d}-{self.end:%d}"
+        start = localtime(self.start)
+        end = localtime(self.end)
+        if start.date() == end.date(): # 1 day
+            format_str = "{start:%B %d}: {start:%l:%M%p} - {end:%l:%M%p}"
+        elif start.month == end.month:
+            format_str = "{start:%B %d} - {end:%d}"
         else:
-            format_str = "{self.start:%B %d}-{self.end:%d}"
-        return format_str.format(self=self)
+            format_str = "{start:%B %d} - {end:%d}"
+        return format_str.format(start=start, end=end)
 
 class EventAction(models.Model):
     event = models.ForeignKey(Event, related_name='actions')
