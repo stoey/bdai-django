@@ -29,6 +29,9 @@
 	    {% for item in menu_items %}
             <li{% if item.active %} class="active"{% endif %}><a href="{{item.target}}">{{item.name}}</a></li>
             {% endfor %}
+	    {% if editlink %}
+            <li><a href="{{editlink}}"><em>Edit This!</em></a></li>
+	    {% endif %}
           </ul>
         </div><!--/.navbar-collapse -->
         <div class="navbar-collapse navbar-right collapse">
