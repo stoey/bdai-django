@@ -24,4 +24,7 @@ def menu(request):
             target="/admin/",
             active=False
         ))
+    for menu_item in context['menu_items']:
+        if request.path == menu_item['target']:
+            menu_item['active'] = True
     return context
