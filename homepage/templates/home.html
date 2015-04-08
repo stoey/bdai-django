@@ -33,7 +33,7 @@
 	<h4 class="times">{{ event.time }}</h4>
         {{ event.description | linebreaks }}
         <p>{% for action in event.actions.all %}
-	<a class="btn btn-primary" href="{{ actio.href }}">{{ action.name }} &raquo;</a>
+	<a class="btn btn-primary" href="{{ action.href }}">{{ action.name }} &raquo;</a>
 	{% endfor %}</p>
       </div>
       {% endif %}
