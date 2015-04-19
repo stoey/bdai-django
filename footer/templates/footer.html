@@ -1,3 +1,4 @@
+{% load static %}
 <footer>
       <div class="container">
 	{% for column in footer_columns %}
@@ -12,49 +13,45 @@
 	  <ul>
             <li>
 	      <a href="http://www.hemophilia.org">
-	        <img src="/static/images/national_hemophilia_foundation.png" alt="National Hemophilia Foundation" title="National Hemophilia Foundation">
+	        <img src="{% static "images/national_hemophilia_foundation.png" %}" alt="National Hemophilia Foundation" title="National Hemophilia Foundation">
               </a>
-	      <ul>
-              </ul>
 	    </li>
             <li>
 	      <a href="http://illinois.healthcharities.org">
-	        <img src="/static/images/community_health_charities_illinois.png" alt="Community Health Charities Illinois" title="Community Health Charities Illinois">
+	        <img src="{% static "images/community_health_charities_illinois.png" %}" alt="Community Health Charities Illinois" title="Community Health Charities Illinois">
               </a>
-	      <ul>
-              </ul>
 	    </li>
             <li>
 	      <a href="http://www.hemophiliafed.org">
-	        <img src="/static/images/hemophilia_federation_of_america.png" alt="Hemophilia Federation of America" title="Hemophilia Federation of America">
+	        <img src="{% static "images/hemophilia_federation_of_america.png" %}" alt="Hemophilia Federation of America" title="Hemophilia Federation of America">
               </a>
-	      <ul>
-              </ul>
 	    </li>
 	  </ul>
 	  <h4>Connect with us</h4>
 	  <ul>
             <li>
 	      <a href="https://www.facebook.com/BDAIllinois">
-		Facebook
+		<img src="{% static "images/facebook_logo.png" %}"> Facebook
               </a>
 	      <ul>
               </ul>
 	    </li>
             <li>
 	      <a href="https://twitter.com/BDAIllinois">
-		Twitter
+		<img src="{% static "images/twitter_logo.png" %}"> Twitter
               </a>
-	      <ul>
-              </ul>
 	    </li>
             <li>
 	      <a href="http://www.linkedin.com/company/bleeding-disorders-alliance-illinois">
-		LinkedIn
+		<img src="{% static "images/linkedin_logo.png" %}"> LinkedIn
               </a>
-	      <ul>
-              </ul>
 	    </li>
+	    <li>
+	      <a href="http://bdaiblog.blogspot.com/">
+		<img src="{% static "images/blogspot_logo.png" %}"> Blog
+              </a>
+	    </li>
+
             <li>
 	      <a href="mailto:info@bdai.org">
 		info@bdai.org
@@ -63,9 +60,8 @@
               </ul>
 	    </li>
             <li>
-              210 S DesPlaines St.
-              Chicago, IL
-              60661-550
+              210 S DesPlaines St.<br/>
+              Chicago, IL 60661-5500
 	    </li>
             <li>
               (312) 427 1495
