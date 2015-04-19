@@ -48,6 +48,7 @@ class Page(models.Model):
     directory = models.ForeignKey('Directory', related_name='pages')
     title = models.CharField(max_length=100)
     contents = models.TextField()
+    image = models.ImageField(blank=True, upload_to='images/page/%Y/')
     footer_link = models.BooleanField(default=False,
         help_text='Should this page appear in the footer?')
 
