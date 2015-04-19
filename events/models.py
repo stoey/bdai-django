@@ -7,6 +7,7 @@ class Event(models.Model):
     end = models.DateTimeField()
     description = models.TextField()
     image = models.ImageField(upload_to='images/event/%Y/')
+    location = models.TextField(default="", blank=True)
 
     def __unicode__(self):
         return self.name

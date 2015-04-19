@@ -12,7 +12,8 @@
 </div>
 <div class="col-md-8">
 <h3>{{ event.time }}</h3>
-<p>{{ event.description }}</p>
+<h4>{{ event.location | linebreaks }}</h4>
+<p>{{ event.description | linebreaks }}</p>
 <p>{% for action in event.actions.all %}
 <a class="btn btn-primary" href="{{ action.href }}">{{ action.name }} &raquo;</a>
 {% endfor %}</p>
