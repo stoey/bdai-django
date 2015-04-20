@@ -36,3 +36,25 @@ class TextBox(models.Model):
 
     def __unicode__(self):
         return self.get_name_display()
+
+class NewsItem(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    image = models.ImageField(blank=True, upload_to='images/news/%Y/')
+    post_date = models.DateField()
+    
+    def __unicode__(self):
+        return self.title
+
+class NewsItemAction(models.Model):
+    news_item = models.ForeignKey('NewsItem', related_name='actions')
+    name = models.CharField(max_length=100)
+    link = models.URLField(blank=True, max_length=255)
+    download = models.FileField(blank=True, upload_to='documents/news/%Y/')
+    
+    
+    @property
+    def href(self):
+        return self.link if self.link else self.download.url
+
+

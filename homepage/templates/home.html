@@ -20,6 +20,7 @@
       <h2>{{ text_boxes.newly_diagnosed.get_name_display }}</h2>
       {{ text_boxes.newly_diagnosed.text|linebreaks }}
       <p><a class="btn btn-primary" href="/newly-diagnosed" role="button">Get in touch &raquo;</a></p>
+      <hr>
       <h2>{{ text_boxes.about_bdai.get_name_display }}</h2>
       {{ text_boxes.about_bdai.text|linebreaks }}
     </div>
@@ -42,6 +43,18 @@
 
   </div>
     <div class="col-md-4">
+      <h2>News</h2>
+      {% for newsitem in newsitems %}
+        {% if newsitem.image %}<div class="pull-right col-md2 col-xs-4"><img src="{{ newsitem.image.url }}" class="img-responsive"></div>{% endif %}
+      <h3>{{ newsitem.title}}</h3>
+      <p>
+	{{ newsitem.description | linebreaks }}
+      </p>
+      {% for action in newsitem.actions.all %}
+        <a href="{{ action.href }}" role="button">{{ action.name }} &raquo;</a>
+      {% endfor %}
+      <hr style="clear:both;">
+      {% endfor %}
       <h2>Sponsors<a class="btn btn-default pull-right" href="/sponsors/" role="button">All Sponsors &raquo;</a></h2>
       <h3>{{ text_boxes.partner_council.get_name_display }}</h3>
 	  <p>{{ text_boxes.partner_council.text|linebreaks }}</p>
