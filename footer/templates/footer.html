@@ -53,11 +53,14 @@
 	    </li>
 
             <li>
-	      <a href="mailto:info@bdai.org">
-		info@bdai.org
+	      <a href="{% url "newsletter_list" %}">
+	      	<img src="{% static "images/newsletter_icon.png" %}"> FactorNet Newsletter
               </a>
-	      <ul>
-              </ul>
+	    </li>
+            <li>
+	      <a href="mailto:info@bdai.org">
+		<img src="{% static "images/email_icon.png" %}"> info@bdai.org
+              </a>
 	    </li>
             <li>
               210 S DesPlaines St.<br/>

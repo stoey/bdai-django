@@ -1,0 +1,16 @@
+{% extends "themes/bdai.html" %}
+{% block page %}
+<div class="container">
+<h1>{{ title }}</h1>
+<ul>
+{% for newsletter in newsletters %}
+{% ifchanged %}
+</ul>
+<h3>{{ newsletter.date_published.year }}</h3>
+<ul>
+{% endifchanged %}
+<li><a href="{{ newsletter.url }}">{{ newsletter.name }}</a></li>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
