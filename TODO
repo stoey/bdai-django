@@ -1,6 +1,4 @@
 * Make camp theme more distinct
 * TinyMCE should trust all html including script tags (newly-diagnosed page)
 * Add Baxter ad (and remove other logos)
-* Make common theme parts a parent template
-* Add Camp and What We Do >>... to menu bar
 * fix 'documants' upload path
