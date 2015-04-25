@@ -1,8 +1,9 @@
 {% extends "themes/base.html" %}
+{% load static %}
 
 {% block themeclass %}theme_bdai{% endblock %}
 
-{% block logo %}<a class="navbar-brand" href="/"><img src="/static/images/bdai.png" alt="Bleeding Disorders Alliance Illinois"></a>{% endblock %}
+{% block logo %}<a class="navbar-brand" href="/"><img src="{% static "images/bdai.png" %}" alt="Bleeding Disorders Alliance Illinois"></a>{% endblock %}
 
 
 {% block title_suffix %}Bleeding Disorders Alliance Illinois{% endblock %}

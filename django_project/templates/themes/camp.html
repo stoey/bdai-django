@@ -1,7 +1,8 @@
 {% extends "themes/base.html" %}
+{% load static %}
 
 {% block themeclass %}theme_camp{% endblock %}
 
-{% block logo %}<a class="navbar-brand" href="/camp/"><img src="/static/images/camp.png" alt="Bleeding Disorders Alliance Illinois"></a>{% endblock %}
+{% block logo %}<a class="navbar-brand" href="/camp/"><img src="{% static "images/camp.png" %}" alt="Bleeding Disorders Alliance Illinois"></a>{% endblock %}
 
 {% block title_suffix %}Camp Warren Jyrch{% endblock %}
