@@ -53,12 +53,12 @@
 
 {% block sidebar %}
 <div id="content-related">
-    <div class="module" id="module-publish-actions">
+    <!--div class="module" id="module-publish-actions">
         <h2>{% trans 'Publish Actions' %}</h2>
 	<h3><form method="GET" action="/"><input class="preview" type="submit" value="Peview"></form></h3>
         <h3><form method="POST" action="{% url "publish_test" %}"><input class="test" type="submit" value="Test">{% csrf_token %}</form></h3>
         <h3><form method="POST" action="{% url "publish_publish" %}"><input class="publish" type="submit" value="Publish">{% csrf_token %}</form></h3>
-    </div>
+    </div-->
     <div class="module" id="recent-actions-module">
         <h2>{% trans 'Recent Actions' %}</h2>
         <h3>{% trans 'My Actions' %}</h3>
