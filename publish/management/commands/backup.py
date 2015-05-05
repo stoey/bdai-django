@@ -1,3 +1,4 @@
+from bz2 import BZ2File
 from datetime import datetime
 from hashlib import sha1
 from os import makedirs
@@ -14,7 +15,7 @@ from django.conf import settings
 from django.core.management.base import BaseCommand
 from django.core.management import call_command
 
-INDEX_FORMAT = "{0:%Y}/{0:%m}/{0:%d}/{0:%H}:{0:%M}/data.json"
+INDEX_FORMAT = "{0:%Y}/{0:%m}/{0:%d}/{0:%H}:{0:%M}/data.json.bz2"
 
 class Command(BaseCommand):
     def add_arguments(self, parser):
@@ -37,11 +38,11 @@ class Command(BaseCommand):
 
         json_data = data_f.getvalue()
         data_hash = sha1(json_data).hexdigest()
-        filename = "{path}/{hash}.json".format(
+        filename = "{path}/{hash}.json.bz2".format(
             path=output_dir,
             hash=data_hash
         )
-        with open(filename, 'w') as f:
+        with BZ2File(filename, 'w') as f:
             f.write(json_data)
 
         index_path = join(output_dir, 'index')
