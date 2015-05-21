@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 
 class Banner(models.Model):
@@ -17,6 +18,12 @@ class BannerAction(models.Model):
 
     def __unicode__(self):
         return u"{0}: {1}".format(self.banner.title, self.name)
+
+    def clean(self):
+        if not self.link and not self.download:
+            raise ValidationError("Must specifiy either a link or download")
+        if self.link and self.download:
+            raise ValidationError("Must specifiy only a link or download not both")
 
     @property
     def href(self):
@@ -51,7 +58,12 @@ class NewsItemAction(models.Model):
     name = models.CharField(max_length=100)
     link = models.URLField(blank=True, max_length=255)
     download = models.FileField(blank=True, upload_to='documents/news/%Y/')
-    
+
+    def clean(self):
+        if not self.link and not self.download:
+            raise ValidationError("Must specifiy either a link or download")
+        if self.link and self.download:
+            raise ValidationError("Must specifiy only a link or download not both")
     
     @property
     def href(self):

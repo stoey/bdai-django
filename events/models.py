@@ -1,3 +1,4 @@
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.utils.timezone import localtime
 
@@ -33,6 +34,12 @@ class EventAction(models.Model):
 
     def __unicode__(self):
         return u"{0}: {1}".format(self.event.name, self.name)
+
+    def clean(self):
+        if not self.link and not self.download:
+            raise ValidationError("Must specifiy either a link or download")
+        if self.link and self.download:
+            raise ValidationError("Must specifiy only a link or download not both")
 
     @property
     def href(self):
