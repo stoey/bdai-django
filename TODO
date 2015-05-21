@@ -1,5 +1,5 @@
 * Make camp theme more distinct
 * TinyMCE should trust all html including script tags (newly-diagnosed page)
-* Add Baxter ad (and remove other logos)
 * fix 'documants' upload path
 * Refactor *Action models to inherit from a common abstract base class
+* Add MailChimp subscribe button
