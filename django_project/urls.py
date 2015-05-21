@@ -7,6 +7,7 @@ if settings.SERVER_MODE == "admin":
 
 urlpatterns = patterns('',
     url(r'^$', 'homepage.views.home', name='home'),
+    url(r'^ads/', include('ads.urls')),
     url(r'^documents/', include('documents.urls')),
     url(r'^events/', include('events.urls')),
     url(r'^publish/', include('publish.urls')),

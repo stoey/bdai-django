@@ -1,4 +1,5 @@
 {% load static %}
+{% load ad %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -60,6 +61,12 @@
     {{ content|safe }}
     </div>
     {% endblock %}
+    <hr>
+    <div class="advertisment text-center">
+      <small>Advertisment</small><br/>
+      {% display_ad %}<br/>
+      <small>If you are interested in advertising on BDAI's website please call 312-427-1495</small>
+    </div>
     <hr>
     {% include "footer.html" %}
 
