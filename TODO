@@ -2,4 +2,3 @@
 * TinyMCE should trust all html including script tags (newly-diagnosed page)
 * fix 'documants' upload path
 * Refactor *Action models to inherit from a common abstract base class
-* Add MailChimp subscribe button
