@@ -13,8 +13,6 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 SERVER_DIR = os.environ.get('SERVER_DIR', BASE_DIR)
 
-SERVER_MODE = os.environ.get('BDAIMODE', 'admin')
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.6/howto/deployment/checklist/
@@ -98,17 +96,11 @@ WSGI_APPLICATION = 'django_project.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.6/ref/settings/#databases
 DATABASES = {
-    'admin': {
+    'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db', 'admin_db.sqlite3'),
     },
-    'live': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db', 'live_db.sqlite3'),
-    },
 }
-
-DATABASES['default'] = DATABASES[SERVER_MODE]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.6/topics/i18n/
